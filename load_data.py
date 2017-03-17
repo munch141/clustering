@@ -1,10 +1,20 @@
+"""
+Proyecto 2 de Inteligencia Artificial 2.
+Enero-Marzo 2017.
+Hecho por:
+    Ricardo Munch.       Carnet: 11-10684.
+    Valentina Hernandez. Carnet: 10-10352.
+
+Este archivo contiene funciones para cargar los datos de los ejercicios.
+"""
+
 import numpy as np
 
 SETOSA = 0
 VERSICOLOR = 1
 VIRGINICA = 2
 
-def load_data(filename):
+def load_iris(filename):
     x = []
     y = []
     with open(filename) as fp:

@@ -1,0 +1,23 @@
+Usamos Python 2.7 para la implementación.
+
+Para correr los programas es necesario instalar las librerías de Python:
+    - OpenCV
+    - Numpy
+    - Matplotlib
+
+La implementación de k-means está en 'k_means.py', la del ejercicio 2 está en
+'e2.py' y la del ejercicio 3 está en 'e3.py'.
+
+Para correr el código del ejercicio 2:
+    $> python e2.py
+
+Para correr el código del ejercicio 2:
+    $> python e3.py
+
+En la carpeta 'plots/' están las gráficas de los resultados del ejercicio 2.
+En la carpeta 'imagenes/' están la imagen original que usamos para el ejercicio
+3 ('perrito.jpg') y las imagenes comprimidas.
+
+Hecho por:
+    Ricardo Münch. 11-10684.
+    Valentina Hernández. 10-10352.

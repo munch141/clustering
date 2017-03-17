@@ -4,11 +4,8 @@ from load_data import *
 
 
 data = load_data("iris.data")
-
-k = 3
-clusters = k_means(k, zip(*data)[0])
-
+k = int(raw_input("k = "))
+clusters, centroids = k_means(k, zip(*data)[0])
 for i in range(k):
-    print "cluster ", i, ": ", len(clusters[i])
-
-graficar_clusters(clusters, k)
+     print "cluster ", i, ": ", len(clusters[i])
+graficar_clusters_iris(clusters, centroids)

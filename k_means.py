@@ -19,7 +19,8 @@ def converged(cs, old_cs):
 
 def k_means(k, xs):
     dim = len(xs[0])
-    centroids = [np.random.randn(dim) for _ in range(k)]
+    centroids = [xs[i] for i in
+                 np.random.choice(range(len(xs)), k, replace=False)]
     old_centroids = []
     clusters = {}
     while not converged(centroids, old_centroids):
@@ -27,12 +28,5 @@ def k_means(k, xs):
         clusters = get_clusters(xs, centroids)
         centroids = []
         for i in range(k):
-            # si hay algun cluster vacio no tiene sentido calcular la
-            # media, entonces le asignamos un nuevo centroide aleatorio
-            if not clusters[i]:
-                centroids.append(np.random.randn(dim))
-            else:
-                centroids.append(np.mean(clusters[i], axis=0))
-    return clusters
-
-
+            centroids.append(np.mean(clusters[i], axis=0))
+    return (clusters, centroids)

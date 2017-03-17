@@ -18,11 +18,14 @@ def min_dist(x, centroids):
 
 def get_clusters(xs, centroids):
     clusters = {}
+    labels = []
     for i in range(len(centroids)):
         clusters[i] = []
     for x in xs:
-        clusters[min_dist(x, centroids)].append(x)
-    return clusters
+        d = min_dist(x, centroids)
+        clusters[d].append(x)
+        labels.append(d)
+    return (clusters, labels)
 
 def converged(cs, old_cs):
     return set([tuple(a) for a in cs]) == set([tuple(a) for a in old_cs])
@@ -34,10 +37,11 @@ def k_means(k, xs):
                  np.random.choice(range(len(xs)), k, replace=False)]
     old_centroids = []
     clusters = {}
+    labels = []
     while not converged(centroids, old_centroids):
         old_centroids = centroids
-        clusters = get_clusters(xs, centroids)
+        clusters, labels = get_clusters(xs, centroids)
         centroids = []
         for i in range(k):
             centroids.append(np.mean(clusters[i], axis=0))
-    return (clusters, centroids)
+    return (clusters, labels, centroids)
